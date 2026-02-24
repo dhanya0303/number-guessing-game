@@ -1,43 +1,30 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+struct Contact {
+char name[50];
+char phone[15];
+};
+int main() {
+struct Contact c;
+int choice;
+printf(&quot;1. Add Contact\n&quot;);
+printf(&quot;2. View Contact\n&quot;);
+printf(&quot;Enter choice: &quot;);
+scanf(&quot;%d&quot;, &amp;choice);
+if(choice == 1) {
+printf(&quot;Enter Name: &quot;);
 
-int main()
-{
-    int number, guess, attempts = 0;
-    char choice;
-
-    srand(time(0));   // Seed for random number
-
-    do
-    {
-        number = rand() % 100 + 1;   // Random number between 1-100
-        attempts = 0;
-
-        printf("\n=== Number Guessing Game ===\n");
-        printf("Guess the number between 1 and 100\n");
-
-        do
-        {
-            printf("Enter your guess: ");
-            scanf("%d", &guess);
-            attempts++;
-
-            if(guess > number)
-                printf("Too High!\n");
-            else if(guess < number)
-                printf("Too Low!\n");
-            else
-                printf("Correct! You guessed in %d attempts.\n", attempts);
-
-        } while(guess != number);
-
-        printf("Do you want to play again? (y/n): ");
-        scanf(" %c", &choice);
-
-    } while(choice == 'y' || choice == 'Y');
-
-    printf("Thank you for playing!\n");
-
-    return 0;
-}# number-guessing-game
+scanf(&quot;%s&quot;, c.name);
+printf(&quot;Enter Phone: &quot;);
+scanf(&quot;%s&quot;, c.phone);
+printf(&quot;Contact Saved Successfully!\n&quot;);
+}
+else if(choice == 2) {
+printf(&quot;Feature under development.\n&quot;);
+}
+else {
+printf(&quot;Invalid Choice\n&quot;);
+}
+return 0;
+}
